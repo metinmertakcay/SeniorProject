@@ -10,10 +10,10 @@ import os
 import re
 
 count = 0
-directory = 'news'
+directory = 'dataset_presenter/validation/positive'
 
 for root, dir_names, file_names in os.walk(directory):
-    for filename in fnmatch.filter(file_names, '*.avi'):
-        filename_new = re.sub(r'.*', str(count) + ".avi", filename)
+    for filename in fnmatch.filter(file_names, '*.jpg'):
+        filename_new = re.sub(r'.*', "positive." + str(count) + ".jpg", filename)
         shutil.move(os.path.join(root, filename), os.path.join(root, filename_new))
         count += 1

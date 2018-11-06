@@ -9,7 +9,7 @@ import cv2
 
 """ VideoCapture object created and reading from input file
 If the input is taken from the camera, pass 0 instead of the video file name. """
-video = cv2.VideoCapture("deneme.avi")
+video = cv2.VideoCapture("news/0.avi")
 
 fps    = video.get(cv2.CAP_PROP_FPS)
 length = int(video.get(cv2.CAP_PROP_FRAME_COUNT))

@@ -19,7 +19,7 @@ for i in range(0, video_count):
       print("Error opening video stream or file")
 
     j = 1
-    count = 10
+    count = 15
     isFinish = False
     while(video.isOpened() and (isFinish == False) and count != 0):
         """ Capture frame-by-frame """
