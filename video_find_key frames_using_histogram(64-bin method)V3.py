@@ -37,7 +37,7 @@ def calculateHistogram(prevFrame, size):
             hist[int(prevFrame[i][j]) - 1] += 1
     return np.array(hist, dtype=int)
 
-video = cv2.VideoCapture("output.mp4")
+video = cv2.VideoCapture("0.avi")
 
 fps    = video.get(cv2.CAP_PROP_FPS)
 height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -50,6 +50,8 @@ prevHist = [0] * 64
 prevFrame = np.zeros(shape=(height, width))
 currentFrame = np.zeros(shape=(height, width))
 
+### DEGİSİKLİK ###
+cnt = 10
 while(video.isOpened() and (isFinish == False)):
     ret, frame = video.read()
     if ret == True:
@@ -59,10 +61,19 @@ while(video.isOpened() and (isFinish == False)):
                     currentFrame[i][j] = createRGBPixelValue(frame[i][j][0], frame[i][j][1], frame[i][j][2])
             currentHist = calculateHistogram(currentFrame, 64)
             dist = np.linalg.norm(currentHist - prevHist)
+
+            ### DEGİSİKLİK ###
             dist = dist / (width * height)
             print(dist)
+            cnt += 1
             if(dist > 0.1):
+                cnt = 0
+                print("aa: ", float(count/fps))
+            if(cnt == 2):
+                print("hlelo")
                 cv2.imwrite("rgb_key_frame/%f.jpg" % float(count / fps), frame)
+
+            ### DEGİSİKLİK ###
             prevHist = currentHist
         else:
             cv2.imwrite("rgb_key_frame/%f.jpg" % float(count / fps), frame)
@@ -95,6 +106,7 @@ while i < size:
 file_list.sort()
 
 i = 0
+next_frame = 10
 while i < size:
     number = float(file_list[i])
     specific_list = [item for item in file_list if (float(item) >= number and  number + 1 >= float(item))]
