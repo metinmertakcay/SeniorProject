@@ -47,7 +47,7 @@ video_count = len([name for name in os.listdir(path) if os.path.isfile(os.path.j
 print(video_count)
 write = 0
 # şimdilik ilk 16 videonun keyframeleri belli olduğundan 15e kadar yazdırdım daha sonra video count olarak değiştirilecek
-for i in range(1, 15):
+for i in range(0, 15):
     videoName = path + "/" + str(i) + ".avi"
     video = cv2.VideoCapture(videoName)
     fps = video.get(cv2.CAP_PROP_FPS)
