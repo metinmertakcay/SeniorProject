@@ -1,0 +1,1 @@
+Dataya ayýralacak olan videolarý koyuyorum. Videos klasöründede ayýrýlmýþ olarak alýyorum.
