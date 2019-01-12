@@ -20,9 +20,3 @@ while i < size:
     except Exception as e:
         print(str(e))
     i += 1
-
-"""print(file_list[0])
-image = cv2.imread('dataset_presenter_detection/negative/%s' % file_list[0])
-cv2.imshow("Show by CV2", image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()"""
